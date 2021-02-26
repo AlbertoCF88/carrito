@@ -1,0 +1,37 @@
+<main role="main" class="container">
+
+    <div class="starter-template">
+      <h1>Stateful</h1>
+     <ul>
+      <li> <p class="lead">Input padre comunican al hijo (input al hijo)</p> 
+            <!-- <pre>En el hijo ->.Ts importar input, y en export class -> @Input() nombre: number ; y en html {{nombre}}.
+                En el padre en la hoja html -> <app-hijo [nombre imput hijo]="metodo() o variable padre"></app-hijo>
+            </pre> -->
+      </li>
+      <li> <p class="lead">Output hijos comunican a los padres (output al padre)</p></li>
+    </ul>
+      
+    <app-formularioprimero></app-formularioprimero>
+    <br>
+    <app-formualriosegundo></app-formualriosegundo>
+
+      <div class="card-deck">
+          <div class="card" *ngFor="let curso of shopModel.shopItems">
+            <app-stateless [product]="curso" (cursomatriculado)="cursoMatriculado($event)"></app-stateless>
+          </div>
+         </div>
+        </div>
+
+          <ul class="list-group">
+            <li class="list-group-item disabled"><h4>Carrito de la compra</h4></li>
+            <li *ngFor="let boughtItem of boughtItems"
+            class="list-group-item">{{boughtItem.title}}
+            <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
+          </li>
+          <li class="list-group-item disabled"><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
+          </li>
+          </ul>
+          <app-confirm [finalPrice]="finalPrice()"></app-confirm>
+          <app-status-cart [price]="finalPrice()" [shopModel]="shopModel.shopItems" (add)="onConfirm()"> </app-status-cart>
+         <br><br><br>
+        </main><!-- /.container -->

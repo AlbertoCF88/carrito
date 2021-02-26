@@ -1,0 +1,37 @@
+
+<section id="forms">
+    <header>
+    <h1>Formulario reactivo</h1></header>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario)"novalidate>
+    <fieldset id="forms__input">
+
+         <p>
+             <label for="user" >Usuario</label>
+            <input formControlName="user"  placeholder="Su nombre de usuario"> 
+            <span *ngIf="formulario.get('user').hasError('required')">minimo 4 caracteres y todo minúsculas</span>
+            {{formulario.controls.user.errors | json}}
+           
+        </p>
+         <p>
+              <label for="password">Password</label>
+             <input formControlName="password" type="password" placeholder="Escriba contraseña">
+             <span *ngIf="formulario.get('password').hasError('required')"> Minimo 8 caracteres,Mayusculas,numeros y caracter especial </span>
+             {{formulario.controls.password.errors | json}}
+         </p>
+         <p>
+            <label for="url">URL:</label>
+           <input formControlName="url" placeholder="direccion https://">
+           <span *ngIf="formulario.get('url').hasError('required')">empieza con (https) y termina con (.com)</span>
+           {{formulario.controls.url.errors | json}}
+       </p>
+       <p>
+        <label for="email">Email:</label>
+       <input formControlName="email" placeholder="corre electrónico">
+       <span *ngIf="formulario.get('email').hasError('required')">debe incluir (@) y terminar en (.com o .es)</span>
+       {{formulario.controls.email.errors | json}}
+   </p>
+      
+         <p> <button class="btn btn-success" type="submit"[disabled]="!formulario.valid">Enviar</button> </p>
+     </fieldset>
+    </form>
+ </section>
