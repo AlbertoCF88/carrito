@@ -11,6 +11,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { StatusCartComponent } from './status-cart/status-cart.component';
 import { FormularioprimeroComponent } from './formularioprimero/formularioprimero.component';
 import { FormualriosegundoComponent } from './formualriosegundo/formualriosegundo.component';
+import { NavegadorComponent } from './navegador/navegador.component';
+import { ErrorRutaComponent } from './error-ruta/error-ruta.component';
+import { ResumenComponent } from './resumen/resumen.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { FormualriosegundoComponent } from './formualriosegundo/formualriosegund
     ConfirmComponent,
     StatusCartComponent,
     FormularioprimeroComponent,
-    FormualriosegundoComponent
+    FormualriosegundoComponent,
+    NavegadorComponent,
+    ErrorRutaComponent,
+    ResumenComponent
   ],
   imports: [
     BrowserModule,

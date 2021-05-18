@@ -1,26 +1,16 @@
-<main role="main" class="container">
-
-    <div class="starter-template">
-      <h1>Stateful</h1>
-     <ul>
-      <li> <p class="lead">Input padre comunican al hijo (input al hijo)</p> 
+<main role="main" class="container mt-5">
+    <!-- Stateful
+    Input padre comunican al hijo (input al hijo) -->
             <!-- <pre>En el hijo ->.Ts importar input, y en export class -> @Input() nombre: number ; y en html {{nombre}}.
                 En el padre en la hoja html -> <app-hijo [nombre imput hijo]="metodo() o variable padre"></app-hijo>
             </pre> -->
-      </li>
-      <li> <p class="lead">Output hijos comunican a los padres (output al padre)</p></li>
-    </ul>
-      
-    <app-formularioprimero></app-formularioprimero>
-    <br>
-    <app-formualriosegundo></app-formualriosegundo>
-
+    <!-- Output hijos comunican a los padres (output al padre) -->
       <div class="card-deck">
           <div class="card" *ngFor="let curso of shopModel.shopItems">
             <app-stateless [product]="curso" (cursomatriculado)="cursoMatriculado($event)"></app-stateless>
           </div>
          </div>
-        </div>
+        
 
           <ul class="list-group">
             <li class="list-group-item disabled"><h4>Carrito de la compra</h4></li>

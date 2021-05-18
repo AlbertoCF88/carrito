@@ -1,21 +1,31 @@
 [
-    {
+  {
+    "id":0,
+    "title": "Curso Front-end",
+    "desc": "Aprende desarrollo front end desde el principio",
+    "picture": "assets/cursos/front.webp",
+    "price": 220
+  },
+  {
+    "id":1,
+    "title": "Curso Back-end",
+    "desc": "Aprende desarrollo Back end desde el principio",
+    "picture": "assets/cursos/back.webp",
+    "price": 220
+  },
+  {
+    "id":2,
+    "title": "Curso Fullstack",
+    "desc": "Aprende desarrollo front end y back end desde el principio",
+    "picture": "assets/cursos/full.webp",
+    "price": 420
+  },
+  {
+    "id":3,
     "title": "Curso Wordpress",
     "desc": "Aprende desarrollo Wordpress desde el principio",
-    "picture": "assets/IMG/wordpress.jpg",
+    "picture": "assets/cursos/word.webp",
     "price": 164
-    },
-    {
-    "title": "Curso Frontend",
-    "desc": "Aprende desarrollo front end desde el principio",
-    "picture": "assets/IMG/frontend.jpg",
-    "price": 220
-    },
-    {
-    "title": "Curso Fullstack",
-    "desc": "Aprende desarrollo frontend y backend desde el principio",
-    "picture": "assets/IMG/fullstack.jpg",
-    "price": 420
-    }
-  ]
+  }
+]
   
