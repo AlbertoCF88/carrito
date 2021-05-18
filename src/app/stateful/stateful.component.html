@@ -14,13 +14,13 @@
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <ul class="list-group">
+            <ul class="list-group  text-center">
               <li class="list-group-item disabled"><h4>Carrito de la compra</h4></li>
               <li *ngFor="let boughtItem of boughtItems"
               class="list-group-item">{{boughtItem.title}}
               <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
             </li>
-            <li class="list-group-item disabled"><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
+            <li class="list-group-item disabled"  [ngClass]="{'text-danger':CambioColor}" ><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
             </li>
             </ul>
             <app-confirm [finalPrice]="finalPrice()"></app-confirm>
@@ -31,11 +31,15 @@
       </div>
 
 
-      <div class="row">
-        <div class="col d-flex justify-content-center"
+      <div class="row mb-5">
+        <div class="col d-flex justify-content-center mt-4"
         *ngFor="let curso of shopModel.shopItems">
-          <div class="card cartaAncho" >
-            <app-stateless [product]="curso" (cursomatriculado)="cursoMatriculado($event)"></app-stateless>
+          <div class="card cartaAncho">
+            <app-stateless
+             [product]="curso" 
+             (cursomatriculado)="cursoMatriculado($event)"
+             (messageEvent)="receiveMessage($event)"
+             ></app-stateless>
           </div>
         </div>
          </div>

@@ -25,6 +25,7 @@ export class StatefulComponent implements OnInit, OnDestroy {//clase integrada c
   errorHttp:boolean;
   shopModel:any;
   boughtItems: Array<Product>;
+  cambioColor: boolean;//precio final en rojo
 
   private shopSubscription: Subscription; //private de forma loca/shopSubcription viene referenciada de import Subcription  
 
@@ -100,5 +101,9 @@ onGlobalKeyboard() {
   console.log("hola, estas clicando por ahi")
 
   });
+  }
+
+  receiveMessage($event) {
+    this.cambioColor = $event
   }
 }
