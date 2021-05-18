@@ -8,6 +8,7 @@ import { FormualriosegundoComponent } from './formualriosegundo/formualriosegund
 const routes: Routes = [
   { path: 'cursos', component: StatefulComponent },
   { path: 'Resumen/Compra', component: ResumenComponent },
+  { path: 'Resumen/Compra/:cursoId', component: ResumenComponent },
   { path: 'registro', component: FormualriosegundoComponent},
   { path: '', component: StatefulComponent, pathMatch: 'full' },
   { path: '**', component:ErrorRutaComponent }

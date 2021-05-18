@@ -14,6 +14,7 @@ import { FormualriosegundoComponent } from './formualriosegundo/formualriosegund
 import { NavegadorComponent } from './navegador/navegador.component';
 import { ErrorRutaComponent } from './error-ruta/error-ruta.component';
 import { ResumenComponent } from './resumen/resumen.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ResumenComponent } from './resumen/resumen.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   
   ],
   providers: [],

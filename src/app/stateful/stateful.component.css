@@ -1,0 +1,15 @@
+.cartaAncho{
+    width: 256px;
+   
+}
+.cartaAncho:hover{
+    animation: cartaHover 1s cubic-bezier(0.18, 0.89, 0.32, 1.28)  forwards;
+}
+@keyframes cartaHover {
+    0%{            
+        box-shadow: 0px 0px 0px rgb(134 123 123 / 47%);
+      }  
+      100%{
+        box-shadow: 6px 8px 5px rgb(134 123 123 / 47%);
+         }
+}

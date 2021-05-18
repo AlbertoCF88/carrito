@@ -5,23 +5,44 @@
                 En el padre en la hoja html -> <app-hijo [nombre imput hijo]="metodo() o variable padre"></app-hijo>
             </pre> -->
     <!-- Output hijos comunican a los padres (output al padre) -->
-      <div class="card-deck">
-          <div class="card" *ngFor="let curso of shopModel.shopItems">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="btn btn-primary btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Carrito
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul class="list-group">
+              <li class="list-group-item disabled"><h4>Carrito de la compra</h4></li>
+              <li *ngFor="let boughtItem of boughtItems"
+              class="list-group-item">{{boughtItem.title}}
+              <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
+            </li>
+            <li class="list-group-item disabled"><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
+            </li>
+            </ul>
+            <app-confirm [finalPrice]="finalPrice()"></app-confirm>
+            <app-status-cart [price]="finalPrice()" [shopModel]="shopModel.shopItems" (add)="onConfirm()"> </app-status-cart>
+           <br><br><br>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col d-flex justify-content-center"
+        *ngFor="let curso of shopModel.shopItems">
+          <div class="card cartaAncho" >
             <app-stateless [product]="curso" (cursomatriculado)="cursoMatriculado($event)"></app-stateless>
           </div>
+        </div>
          </div>
         
+  
+        </div>
 
-          <ul class="list-group">
-            <li class="list-group-item disabled"><h4>Carrito de la compra</h4></li>
-            <li *ngFor="let boughtItem of boughtItems"
-            class="list-group-item">{{boughtItem.title}}
-            <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
-          </li>
-          <li class="list-group-item disabled"><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
-          </li>
-          </ul>
-          <app-confirm [finalPrice]="finalPrice()"></app-confirm>
-          <app-status-cart [price]="finalPrice()" [shopModel]="shopModel.shopItems" (add)="onConfirm()"> </app-status-cart>
-         <br><br><br>
-        </main><!-- /.container -->
+        </main>
+
+        
