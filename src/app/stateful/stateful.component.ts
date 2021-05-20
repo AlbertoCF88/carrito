@@ -25,13 +25,14 @@ export class StatefulComponent implements OnInit, OnDestroy {//clase integrada c
   errorHttp:boolean;
   shopModel:any;
   boughtItems: Array<Product>;
-  cambioColor: boolean;//precio final en rojo
+  cambioColorPadre: boolean;//precio final en rojo viene del hijo
 
   private shopSubscription: Subscription; //private de forma loca/shopSubcription viene referenciada de import Subcription  
 
  constructor(private http: HttpClient, private ren: Renderer2) {
    this.boughtItems = [];
    this.shopModel ={shopItems: []};
+   this.cambioColorPadre=false
    //ahora los cursos sale de assets cursos.jason y no de models shop.models
   }
 
@@ -102,8 +103,8 @@ onGlobalKeyboard() {
 
   });
   }
-
-  receiveMessage($event) {
-    this.cambioColor = $event
+//recibir color true del hijo
+  FunCambiar(e) {
+    this.cambioColorPadre = e;
   }
 }

@@ -20,7 +20,7 @@
               class="list-group-item">{{boughtItem.title}}
               <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
             </li>
-            <li class="list-group-item disabled"  [ngClass]="{'text-danger':CambioColor}" ><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
+            <li class="list-group-item disabled"  [ngClass]="{'text-danger':cambioColorPadre}" ><h2>Total: {{finalPrice() | currency:"&euro;"}}</h2>
             </li>
             </ul>
             <app-confirm [finalPrice]="finalPrice()"></app-confirm>
@@ -38,7 +38,7 @@
             <app-stateless
              [product]="curso" 
              (cursomatriculado)="cursoMatriculado($event)"
-             (messageEvent)="receiveMessage($event)"
+             (cambioColorPadre)="FunCambiar($event)"
              ></app-stateless>
           </div>
         </div>

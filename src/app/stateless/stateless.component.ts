@@ -11,21 +11,21 @@ import { Product } from '../interface/product';
 export class StatelessComponent implements OnInit {
   @Input() product: Product;//usar algo producto de la hota html stataless
   @Output() cursomatriculado: EventEmitter<Product> = new EventEmitter();//evento que recogene componenete padre stateful
-  @Output()  messageEvent= new EventEmitter<boolean>();
-  cambioColor: boolean =true;
+  @Output()  cambioColorPadre = new EventEmitter<boolean>();
 
   //lo de public o private para opcional
   public matricula: string;//es como una variable global para que puede ser llamado por otra hoja or el ejemplo por la hoja html
   private disable: boolean;//private es como una varible local(no salgas de esta hoja)
+  cambioColor:boolean;
 
 
   constructor() { 
-  
+
   }
 
   ngOnInit(): void {
     this.matricula = 'Matricularse';//cuando este componente se inicia pone en texto matricularse luego cambiara el texto
-
+   
   }
   matricularse() {
     this.disable = true;//clica entoes es true
@@ -43,8 +43,10 @@ mensaje(){
 
 
 
-sendMessage() {
-  this.messageEvent.emit(this.cambioColor);
+FunCambioColor() {
+
+this.cambioColorPadre.emit(true)
+  
   console.log(`color ${this.cambioColor}`)
 }
 
