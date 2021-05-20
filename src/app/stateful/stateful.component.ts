@@ -55,6 +55,9 @@ export class StatefulComponent implements OnInit, OnDestroy {//clase integrada c
  clickItem(_curso: Product) {
    this.boughtItems.push(_curso);//al clicar mete el curso ene l carritod e la compra
  }
+ eliminarCurso(_curso){
+  this.boughtItems.splice(_curso,1);
+ }
  cursoMatriculado(_event: Product){
    this.clickItem(_event);//viene del html y a suvez del stateless
    this.onConfirm(); //muestra alert de metodo onconfimr mas abajo 

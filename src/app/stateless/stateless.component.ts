@@ -11,14 +11,12 @@ import { Product } from '../interface/product';
 export class StatelessComponent implements OnInit {
   @Input() product: Product;//usar algo producto de la hota html stataless
   @Output() cursomatriculado: EventEmitter<Product> = new EventEmitter();//evento que recogene componenete padre stateful
-  @Output()  cambioColorPadre = new EventEmitter<boolean>();
+  @Output()  cambioColorPadre = new EventEmitter<boolean>();//cambio color precio final padre
 
   //lo de public o private para opcional
   public matricula: string;//es como una variable global para que puede ser llamado por otra hoja or el ejemplo por la hoja html
   private disable: boolean;//private es como una varible local(no salgas de esta hoja)
-  cambioColor:boolean;
-
-
+ 
   constructor() { 
 
   }
@@ -41,13 +39,10 @@ mensaje(){
   alert('¿Te vas a descargar la imagen?');
 }
 
-
-
+//cambiar precio final color padre
 FunCambioColor() {
-
 this.cambioColorPadre.emit(true)
-  
-  console.log(`color ${this.cambioColor}`)
+console.log(`color ${this.cambioColorPadre}`)
 }
 
 }
