@@ -19,7 +19,10 @@
               <li *ngFor="let boughtItem of boughtItems"
               class="list-group-item">{{boughtItem.title}}
               <span class="badge badge-primary badge-pill">{{boughtItem.price | currency:"&euro;"}}</span>
-              <button type="button" class="btn btn-danger" (click)="eliminarCurso(_curso)">
+              <button type="button" class="btn btn-danger"
+              (click)="eliminarCurso(); 
+              funDisable(_curso);
+              cambioColorPadre= !cambioColorPadre">
               eliminar
                 </button>
             </li>
@@ -40,6 +43,7 @@
           <div class="card cartaAncho">
             <app-stateless
              [product]="curso" 
+             [disable]="disableP"
              (cursomatriculado)="cursoMatriculado($event)"
              (cambioColorPadre)="FunCambiar($event)"
              ></app-stateless>

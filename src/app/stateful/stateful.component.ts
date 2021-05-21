@@ -26,13 +26,15 @@ export class StatefulComponent implements OnInit, OnDestroy {//clase integrada c
   shopModel:any;
   boughtItems: Array<Product>;
   cambioColorPadre: boolean;//precio final en rojo viene del hijo
-
+  disableP:boolean;
   private shopSubscription: Subscription; //private de forma loca/shopSubcription viene referenciada de import Subcription  
 
  constructor(private http: HttpClient, private ren: Renderer2) {
    this.boughtItems = [];
    this.shopModel ={shopItems: []};
    this.cambioColorPadre=false
+   this.disableP=false
+
    //ahora los cursos sale de assets cursos.jason y no de models shop.models
   }
 
@@ -57,6 +59,12 @@ export class StatefulComponent implements OnInit, OnDestroy {//clase integrada c
  }
  eliminarCurso(_curso){
   this.boughtItems.splice(_curso,1);
+ 
+ }
+ funDisable(){
+   this.disableP=false;
+  
+  console.log(`this.disable PADRE  ${this.disableP}`)
  }
  cursoMatriculado(_event: Product){
    this.clickItem(_event);//viene del html y a suvez del stateless
